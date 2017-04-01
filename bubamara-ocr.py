@@ -10,8 +10,8 @@ abeceda = ['A', 'B', 'C', 'Č', 'Ć', 'D', 'DŽ', 'Đ', 'E', 'F', 'G', 'H', 'I',
 imgTrain = 'calibration/tablet.jpg'
 
 #pixel size for input image:
-xPixels = 300L
-yPixels = 300L
+xPixels = 100L
+yPixels = 100L
 
 def bubamaraGen(trainImage, testImage):
 
@@ -47,19 +47,19 @@ def bubamaraGen(trainImage, testImage):
   print "Array Count: " + str(xCount) + "," + str(yCount)
   print str(xCount * yCount) + " letters"
 
-  # Make both into Numpy arrays. Their sizes will be (100,100,6,5)
+  # Make both into Numpy arrays. Their sizes will be (5,6,100,100)
   # Total area: 300000
   x1 = np.array(bubamara_cells)
   x2 = np.array(input_img_cells)
 
 
   # Now we prepare train_data and test_data.
-  train = x1[:,:100].reshape(-1,100).astype(np.float32) # Size = (3000,100)
-  test = x2[:,:100].reshape(-1,100).astype(np.float32) # Size = (3000,100)
+  train = x1[:,:30].reshape(-1,10000).astype(np.float32) # Size = (3000,100)
+  test = x2[:,:xCount * yCount].reshape(-1,xPixels * yPixels).astype(np.float32) # Size = (3000,100)
 
   # Create labels for the first 30 cells.
   k = np.arange(30)
-  train_labels = np.repeat(k,100)[:,np.newaxis] # Length of labels will be 30
+  train_labels = np.repeat(k,1)[:,np.newaxis] # Length of labels will be 30
 
   # Initiate kNN and train the data.
   knn = cv2.KNearest()

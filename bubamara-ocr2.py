@@ -7,8 +7,11 @@ import cv2
 #np.set_printoptions(threshold=999999)
 
 abeceda = ['A', 'B', 'C', 'Č', 'Ć', 'D', 'DŽ', 'Đ', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'LJ', 'M', 'N', 'NJ', 'O', 'P', 'R', 'S', 'Š', 'T', 'U', 'V', 'Z', 'Ž']
-
 imgTrain = 'calibration/tablet.jpg'
+
+#pixel size for input image:
+xPixels = 300L
+yPixels = 300L
 
 def bubamaraGen(trainImage, testImage):
 
@@ -22,20 +25,33 @@ def bubamaraGen(trainImage, testImage):
 
   input_img = cv2.cvtColor(img2,cv2.COLOR_BGR2GRAY)
   # Make the input image the same size as the training image.
-  input_img = cv2.resize(input_img, (bubamara.shape[0],bubamara.shape[1]), interpolation = cv2.INTER_AREA)
+  # input_img = cv2.resize(input_img, (bubamara.shape[0],bubamara.shape[1]), interpolation = cv2.INTER_AREA)
+
+  #compute size of input image:
+  print "inputImage Size: " + str(input_img.shape[0]) + "x" + str(input_img.shape[1])
+  
+  #now figure out how many 30x30 boxes fill the image & crop to that size:
+  xCount = input_img.shape[0] / xPixels
+  yCount = input_img.shape[1] / yPixels
+
+  input_img = input_img[0:xCount*xPixels, 0:yCount*yPixels] # Crop from x, y, w, h -> 100, 200, 300, 400
+                                   # NOTE: its img[y: y + h, x: x + w] and *not* img[x: x + w, y: y + h]
+  
+  print "inputImage New Size: " + str(input_img.shape[0]) + "x" + str(input_img.shape[1])
 
   # Now we split the images to 30 cells, each 100x100 in size. (6x5 grid)
   # 30 corresponds to each letter of the Bosnian-Serbian-Croatian alphabet.
-  bubamara_cells = [np.hsplit(row,100) for row in np.vsplit(bubamara,100)]
-  input_img_cells = [np.hsplit(row,100) for row in np.vsplit(input_img,100)]
+  bubamara_cells = [np.hsplit(row,6) for row in np.vsplit(bubamara,5)]
+  input_img_cells = [np.hsplit(row,yCount) for row in np.vsplit(input_img,xCount)]
 
-  # Make both into Numpy arrays. Their sizes will be (100,100,6,5)
+  print "Array Count: " + str(xCount) + "," + str(yCount)
+  print str(xCount * yCount) + " letters"
+
+  # Make both into Numpy arrays. Their sizes will be (5,6,100,100)
   # Total area: 300000
   x1 = np.array(bubamara_cells)
   x2 = np.array(input_img_cells)
 
-  print "x1 Length: " + str(len(x1[2]))
-  print "x2 Length: " + str(len(x2[2]))
 
   # Now we prepare train_data and test_data.
   train = x1[:,:100].reshape(-1,100).astype(np.float32) # Size = (3000,100)
