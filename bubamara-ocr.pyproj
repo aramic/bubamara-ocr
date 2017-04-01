@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3f065be1-7f5f-4858-8514-a8fc75f491d5}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>bubamara-ocr.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Standard Python launcher</LaunchProvider>
+    <InterpreterId />
+    <InterpreterVersion />
+    <CommandLineArguments>-i selectedinput/20160612_163754.jpg</CommandLineArguments>
+    <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+    <PtvsTargetsFile>$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets</PtvsTargetsFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="bubamara-ocr.py" />
+    <Compile Include="bubamara-ocr2.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="calibration\tablet.jpg" />
+    <Content Include="calibration\tablet.png" />
+    <Content Include="output\20160612_163754.jpg.txt" />
+    <Content Include="output\banatskidvor.jpg.txt" />
+    <Content Include="selectedinput\20160612_163754.jpg" />
+    <Content Include="selectedinput\20160612_164346.jpg" />
+    <Content Include="selectedinput\20160612_164623.jpg" />
+    <Content Include="selectedinput\20160612_164628.jpg" />
+    <Content Include="selectedinput\20160612_165403.jpg" />
+    <Content Include="selectedinput\20160612_165414.jpg" />
+    <Content Include="selectedinput\20160612_165432.jpg" />
+    <Content Include="selectedinput\20160612_165739.jpg" />
+    <Content Include="selectedinput\20160612_165743.jpg" />
+    <Content Include="selectedinput\20160612_165943.jpg" />
+    <Content Include="selectedinput\20160612_165951.jpg" />
+    <Content Include="selectedinput\20160612_170042.jpg" />
+    <Content Include="selectedinput\20160612_170054.jpg" />
+    <Content Include="selectedinput\20160612_170057.jpg" />
+    <Content Include="selectedinput\20160612_170107.jpg" />
+    <Content Include="selectedinput\20160612_170350.jpg" />
+    <Content Include="selectedinput\20160612_170353.jpg" />
+    <Content Include="selectedinput\20160612_170911.jpg" />
+    <Content Include="selectedinput\20160612_174837.jpg" />
+    <Content Include="selectedinput\20160612_174841.jpg" />
+    <Content Include="selectedinput\20160612_174846.jpg" />
+    <Content Include="selectedinput\20160612_174854.jpg" />
+    <Content Include="selectedinput\20160612_174857.jpg" />
+    <Content Include="selectedinput\20160612_174936.jpg" />
+    <Content Include="selectedinput\20160612_174940.jpg" />
+    <Content Include="selectedinput\20160612_175214.jpg" />
+    <Content Include="selectedinput\20160612_181403.jpg" />
+    <Content Include="selectedinput\20160612_181414.jpg" />
+    <Content Include="selectedinput\20160612_181420.jpg" />
+    <Content Include="selectedinput\20160612_181425.jpg" />
+    <Content Include="selectedinput\20160612_181430.jpg" />
+    <Content Include="selectedinput\20160612_182607.jpg" />
+    <Content Include="selectedinput\20160612_182735.jpg" />
+    <Content Include="selectedinput\20160612_182755.jpg" />
+    <Content Include="selectedinput\20160612_182805.jpg" />
+    <Content Include="selectedinput\20160612_182812.jpg" />
+    <Content Include="selectedinput\20160612_182818.jpg" />
+    <Content Include="selectedinput\20160612_182934.jpg" />
+    <Content Include="selectedinput\20160612_183922.jpg" />
+    <Content Include="selectedinput\20160612_183931.jpg" />
+    <Content Include="selectedinput\20160612_183939.jpg" />
+    <Content Include="selectedinput\20160612_183958.jpg" />
+    <Content Include="selectedinput\20160612_184003.jpg" />
+    <Content Include="selectedinput\20160612_184007.jpg" />
+    <Content Include="selectedinput\20160612_184013.jpg" />
+    <Content Include="selectedinput\20160612_184025.jpg" />
+    <Content Include="selectedinput\20160612_184551.jpg" />
+    <Content Include="selectedinput\20160612_184606.jpg" />
+    <Content Include="selectedinput\20160612_184616.jpg" />
+    <Content Include="selectedinput\20160612_184653.jpg" />
+    <Content Include="selectedinput\20160612_184717.jpg" />
+    <Content Include="selectedinput\20160612_184906.jpg" />
+    <Content Include="selectedinput\20160612_184911.jpg" />
+    <Content Include="selectedoutput\20160612_163736.jpg.txt" />
+    <Content Include="selectedoutput\20160612_163754.jpg.txt" />
+    <Content Include="selectedoutput\20160612_164346.jpg.txt" />
+    <Content Include="selectedoutput\20160612_164623.jpg.txt" />
+    <Content Include="selectedoutput\20160612_164628.jpg.txt" />
+    <Content Include="selectedoutput\20160612_165403.jpg.txt" />
+    <Content Include="selectedoutput\20160612_165414.jpg.txt" />
+    <Content Include="selectedoutput\20160612_165432.jpg.txt" />
+    <Content Include="selectedoutput\20160612_165739.jpg.txt" />
+    <Content Include="selectedoutput\20160612_165743.jpg.txt" />
+    <Content Include="selectedoutput\20160612_165943.jpg.txt" />
+    <Content Include="selectedoutput\20160612_165951.jpg.txt" />
+    <Content Include="selectedoutput\20160612_170042.jpg.txt" />
+    <Content Include="selectedoutput\20160612_170054.jpg.txt" />
+    <Content Include="selectedoutput\20160612_170057.jpg.txt" />
+    <Content Include="selectedoutput\20160612_170107.jpg.txt" />
+    <Content Include="selectedoutput\20160612_170350.jpg.txt" />
+    <Content Include="selectedoutput\20160612_170353.jpg.txt" />
+    <Content Include="selectedoutput\20160612_170911.jpg.txt" />
+    <Content Include="selectedoutput\20160612_174837.jpg.txt" />
+    <Content Include="selectedoutput\20160612_174841.jpg.txt" />
+    <Content Include="selectedoutput\20160612_174846.jpg.txt" />
+    <Content Include="selectedoutput\20160612_174854.jpg.txt" />
+    <Content Include="selectedoutput\20160612_174857.jpg.txt" />
+    <Content Include="selectedoutput\20160612_174936.jpg.txt" />
+    <Content Include="selectedoutput\20160612_174940.jpg.txt" />
+    <Content Include="selectedoutput\20160612_175214.jpg.txt" />
+    <Content Include="selectedoutput\20160612_181403.jpg.txt" />
+    <Content Include="selectedoutput\20160612_181414.jpg.txt" />
+    <Content Include="selectedoutput\20160612_181420.jpg.txt" />
+    <Content Include="selectedoutput\20160612_181425.jpg.txt" />
+    <Content Include="selectedoutput\20160612_181430.jpg.txt" />
+    <Content Include="selectedoutput\20160612_182607.jpg.txt" />
+    <Content Include="selectedoutput\20160612_182735.jpg.txt" />
+    <Content Include="selectedoutput\20160612_182755.jpg.txt" />
+    <Content Include="selectedoutput\20160612_182805.jpg.txt" />
+    <Content Include="selectedoutput\20160612_182812.jpg.txt" />
+    <Content Include="selectedoutput\20160612_182818.jpg.txt" />
+    <Content Include="selectedoutput\20160612_182934.jpg.txt" />
+    <Content Include="selectedoutput\20160612_183922.jpg.txt" />
+    <Content Include="selectedoutput\20160612_183931.jpg.txt" />
+    <Content Include="selectedoutput\20160612_183939.jpg.txt" />
+    <Content Include="selectedoutput\20160612_183958.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184003.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184007.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184013.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184025.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184551.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184606.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184616.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184653.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184717.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184906.jpg.txt" />
+    <Content Include="selectedoutput\20160612_184911.jpg.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="calibration" />
+    <Folder Include="output" />
+    <Folder Include="selectedinput" />
+    <Folder Include="selectedoutput" />
+  </ItemGroup>
+  <Import Project="$(PtvsTargetsFile)" Condition="Exists($(PtvsTargetsFile))" />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="!Exists($(PtvsTargetsFile))" />
+</Project>
