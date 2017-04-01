@@ -65,12 +65,29 @@ def bubamaraGen(trainImage, testImage):
   knn = cv2.KNearest()
   knn.train(train,train_labels)
   ret,result,neighbours,dist = knn.find_nearest(test,k=2)
-  result = result[:,:30].reshape(-1,1).astype(np.int)
+  resultVec = result[:,:30].reshape(-1,1).astype(np.int)
 
   # Turn the result into a Unicode string
   s = ""
-  for item in result:
+  for item in resultVec:
     s += abeceda[item[0]] + " "
+  
+    #make new directory for images 
+  imagesPath = r'output/' + os.path.splitext(input_name)[0]
+  if not os.path.exists(imagesPath):
+    os.makedirs(imagesPath)
+  
+  #result2D = np.unravel_index(resultVec,(xCount,yCount))
+  result2D = resultVec.reshape(xCount,yCount)
+
+  for index, x in np.ndenumerate(result2D):
+    l = abeceda[x]                                       # letter for specific image seg
+    xLoc = index[0] * xPixels                            # X pixel of image seg
+    yLoc = index[1] * yPixels                            # Y pixel of image seg
+    imgSection = img2[xLoc:xLoc+100, yLoc:yLoc+100] # Crop from x, y, w, h -> xLoc, yLoc, 100,100
+    imageLocName = imagesPath + '/' + str(index[0] ) + '_' + str(index[1] ) + "_" + l + ".jpg"
+    cv2.imwrite(imageLocName, imgSection)
+
 
   # Save text to a file
   output_filename = 'output/' + input_name + ".txt"
