@@ -18,11 +18,9 @@ def bubamaraGen(trainImage, testImage):
   bubamara = cv2.cvtColor(trainImage,cv2.COLOR_BGR2GRAY)
 
   img2 = cv2.imread(testImage)
-  #img2 = cv2.imread('img/banatskidvor.jpg')
   input_name = os.path.basename(testImage)
-  #input_name = os.path.basename('img/banatskidvor.jpg')
-  input_img = cv2.cvtColor(img2,cv2.COLOR_BGR2GRAY)
 
+  input_img = cv2.cvtColor(img2,cv2.COLOR_BGR2GRAY)
   # Make the input image the same size as the training image.
   input_img = cv2.resize(input_img, (bubamara.shape[0],bubamara.shape[1]), interpolation = cv2.INTER_AREA)
 
@@ -35,6 +33,9 @@ def bubamaraGen(trainImage, testImage):
   # Total area: 300000
   x1 = np.array(bubamara_cells)
   x2 = np.array(input_img_cells)
+
+  print "x1 Length: " + str(len(x1[2]))
+  print "x2 Length: " + str(len(x2[2]))
 
   # Now we prepare train_data and test_data.
   train = x1[:,:100].reshape(-1,100).astype(np.float32) # Size = (3000,100)
