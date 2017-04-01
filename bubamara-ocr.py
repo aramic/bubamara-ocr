@@ -8,11 +8,11 @@ import cv2
 
 abeceda = ['A', 'B', 'C', 'Č', 'Ć', 'D', 'DŽ', 'Đ', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'LJ', 'M', 'N', 'NJ', 'O', 'P', 'R', 'S', 'Š', 'T', 'U', 'V', 'Z', 'Ž']
 
-# Set up the training image. 
+# Set up the training image.
 # It is an alphabetical tablet of ladybugs.
 img1 = cv2.imread('calibration/tablet.jpg')
 bubamara = cv2.cvtColor(img1,cv2.COLOR_BGR2GRAY)
- 
+
 # Set up the user's input image to check against.
 ap = argparse.ArgumentParser()
 ap.add_argument("-i", "--image", required = True, help = "Path to the image")
@@ -54,7 +54,7 @@ result = result[:,:30].reshape(-1,1).astype(np.int)
 # Turn the result into a Unicode string
 s = ""
 for item in result:
-	s += abeceda[item[0]]
+	s += abeceda[item[0]] + " "
 
 # Save text to a file
 output_filename = 'output/' + input_name + ".txt"
